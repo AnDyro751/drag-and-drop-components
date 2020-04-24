@@ -78,10 +78,10 @@ export default function Card({text, id, index, moveCard}) {
                 }
                 .main_card{
                     opacity: ${opacity};
-                    margin-bottom: .5rem;
                     padding: 1em;
                     background: yellow;
                     border: 1px dashed #f44336;
+                    margin-bottom: .5em !important;
                 }
             `}</style>
         </>
