@@ -1,0 +1,36 @@
+{
+  "name": "drag-and-drop-components",
+  "version": "1.0.0",
+  "description": "MINI PAGE COMPONENT BUILDER",
+  "main": "index.js",
+  "dependencies": {
+    "braces": "^2.3.2",
+    "domelementtype": "^2.0.1",
+    "next": "^9.3.5",
+    "postcss-selector-parser": "^3.1.2",
+    "postcss-value-parser": "^3.3.1",
+    "punycode": "^1.4.1",
+    "react": "^16.13.1",
+    "react-dnd": "^10.0.2",
+    "react-dnd-html5-backend": "^10.0.2",
+    "react-dom": "^16.13.1",
+    "string_decoder": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnDyro751/drag-and-drop-components.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnDyro751/drag-and-drop-components/issues"
+  },
+  "homepage": "https://github.com/AnDyro751/drag-and-drop-components#readme"
+}
