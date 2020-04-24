@@ -1,18 +1,33 @@
 import indexPage from '../../../json_pages/index'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useCallback} from 'react'
 import Card from "../Card";
+import update from "immutability-helper";
 
-const Board = ({knightPosition}) => {
+
+const Board = ({}) => {
     const [cards, setCards] = useState(indexPage.elements);
     useEffect(() => {
         console.log("CARDS", cards)
-    }, [])
+    }, [cards])
 
-    const renderCard = (card, i) => {
+    const moveCard = useCallback(
+        (dragIndex, hoverIndex) => {
+            const dragCard = cards[dragIndex];
+            setCards(
+                update(cards, {
+                    $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
+                })
+            );
+        },
+        [cards]
+    );
+
+    const renderCard = (card, index) => {
         return (
             <Card
-                key={i}
-                index={i}
+                moveCard={moveCard}
+                key={card.id}
+                index={index}
                 id={card.id}
                 text={card.text}
             />

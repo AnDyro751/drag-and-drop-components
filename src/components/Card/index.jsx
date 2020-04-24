@@ -2,7 +2,7 @@ import {useRef} from 'react'
 import {useDrag, useDrop} from "react-dnd";
 import ItemTypes from "../../itemTypes";
 
-export default function Card({text, id, index}) {
+export default function Card({text, id, index, moveCard}) {
 
     const ref = useRef(null)
 
@@ -21,22 +21,27 @@ export default function Card({text, id, index}) {
             }
 
             // POSICIÓN DEL RECTANGULO DEL COMOPONENTE
-            const hoverBoundingReact = ref.current.getBoundingClientRect();
-            console.log("OUND", hoverBoundingReact);
+            const hoverBoundingRect = ref.current.getBoundingClientRect();
+            // console.log("OUND", hoverBoundingReact);
             // SE DETERMINA LA POSICIÓN DEL ELEMENTO
-            const hoverMiddleY = (hoverBoundingReact.bottom - hoverBoundingReact.top) / 2;
+            const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
             // DETERMINA LA POSICIÓN DEL MOUSE QUE SE ESTÁ ARRASTRANDO
-            const clientOffset = monitor.getClientOffset()
+            // const clientOffset = monitor.getClientOffset()
             // DETERMINA LOS PIXELES PARA TOPAR EL EJE Y
-            const hoverClientY = clientOffset.y - hoverBoundingReact.top;
+            const clientOffset = monitor.getClientOffset()
+            // Get pixels to the top
+            const hoverClientY = clientOffset.y - hoverBoundingRect.top
+            // const hoverClientY = clientOffset.y - hoverBoundingReact.top;
             // SI AÚN NO ES SOBREPASA EL TAMAÑO DEL RECTUANGULO ENTONCES NO HACE NADA
             if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-                return;
-            }
-
-            if (dragIndex > hoverIndex && hoverClientY > hoverClientY) {
                 return
             }
+            // Dragging upwards
+            if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+                return
+            }
+
+            moveCard(dragIndex,hoverIndex);
 
             item.index = hoverIndex;
         }
@@ -54,6 +59,8 @@ export default function Card({text, id, index}) {
             <div ref={ref} className="main_card">{text}</div>
             <style jsx>{`
                 .main_card{
+                    margin-bottom: .5rem;
+                    cursor: move;
                     opacity: ${opacity};
                     padding: 1em;
                     background: yellow;
