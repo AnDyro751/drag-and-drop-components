@@ -41,27 +41,44 @@ export default function Card({text, id, index, moveCard}) {
                 return
             }
 
-            moveCard(dragIndex,hoverIndex);
+            moveCard(dragIndex, hoverIndex);
 
             item.index = hoverIndex;
         }
     })
-    const [{isDragging}, drag] = useDrag({
+    const [{isDragging}, drag, preview] = useDrag({
         item: {type: ItemTypes.CARD, id, index},
         collect: (monitor) => ({
             isDragging: monitor.isDragging()
         })
     })
     const opacity = isDragging ? 0 : 1;
-    drag(drop(ref))
     return (
         <>
-            <div ref={ref} className="main_card">{text}</div>
+            <div
+                ref={preview(drop(ref))}
+                className="main_card row no_margin middle-xs">
+                <div ref={drag} className="col-xs main_box_handle">
+                    <div
+                        className="main_handle"
+                    />
+                </div>
+                <div className="col-xs-11">
+                    {text}
+                </div>
+            </div>
             <style jsx>{`
-                .main_card{
-                    margin-bottom: .5rem;
+                .main_box_handle{
+                    height: 1em;
+                    width: 1em;
+                    max-width: 1em;
+                    max-height: 1em;
+                    background: red;
                     cursor: move;
+                }
+                .main_card{
                     opacity: ${opacity};
+                    margin-bottom: .5rem;
                     padding: 1em;
                     background: yellow;
                     border: 1px dashed #f44336;

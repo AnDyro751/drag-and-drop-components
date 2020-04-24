@@ -6,10 +6,6 @@ import update from "immutability-helper";
 
 const Board = ({}) => {
     const [cards, setCards] = useState(indexPage.elements);
-    useEffect(() => {
-        console.log("CARDS", cards)
-    }, [cards])
-
     const moveCard = useCallback(
         (dragIndex, hoverIndex) => {
             const dragCard = cards[dragIndex];
