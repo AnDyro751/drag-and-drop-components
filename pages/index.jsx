@@ -10,10 +10,9 @@ const IndexPage = () => (
         </Head>
         <DndProvider backend={Backend}>
             <Board
-                knightPosition={[0, 0]}
             />
         </DndProvider>
     </>
 )
 
-export default IndexPage;
+export default IndexPage
