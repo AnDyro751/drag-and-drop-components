@@ -9,7 +9,9 @@ const IndexPage = () => (
             <title>Drag and Drop - Azachii Components</title>
         </Head>
         <DndProvider backend={Backend}>
-            <Board/>
+            <Board
+                knightPosition={[0, 0]}
+            />
         </DndProvider>
     </>
 )

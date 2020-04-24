@@ -1,11 +1,20 @@
-import Square from "../Square";
-import Knight from "../Knight";
-const Board = () => {
+import renderSquare from "../renderSquare";
+
+const Board = ({knightPosition}) => {
+    const squares = []
+    for (let i = 0; i < 64; i++) {
+        squares.push(renderSquare(i, knightPosition))
+    }
     return (
-        <div>
-            <Square black>
-                <Knight />
-            </Square>
+        <div
+            style={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                flexWrap: 'wrap',
+            }}
+        >
+            {squares}
         </div>
     )
 }
