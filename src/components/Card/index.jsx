@@ -64,7 +64,7 @@ export default function Card({text, id, index, moveCard}) {
                         className="main_handle"
                     />
                 </div>
-                <DoubleClick parentClass="col-xs-11 small_padding_vertical">
+                <DoubleClick parentClass="col-xs small_padding_vertical">
                     {text}
                 </DoubleClick>
             </div>
