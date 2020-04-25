@@ -1,6 +1,7 @@
 import {useRef} from 'react'
 import {useDrag, useDrop} from "react-dnd";
 import ItemTypes from "../../itemTypes";
+import DoubleClick from "../DoubleClick";
 
 export default function Card({text, id, index, moveCard}) {
 
@@ -63,12 +64,12 @@ export default function Card({text, id, index, moveCard}) {
                         className="main_handle"
                     />
                 </div>
-                <div className="col-xs-11">
+                <DoubleClick parentClass="col-xs-11 small_padding_vertical">
                     {text}
-                </div>
+                </DoubleClick>
             </div>
             <style jsx>{`
-                .main_box_handle{
+                .main_handle{
                     height: 1em;
                     width: 1em;
                     max-width: 1em;
@@ -76,9 +77,16 @@ export default function Card({text, id, index, moveCard}) {
                     background: red;
                     cursor: move;
                 }
+                .main_box_handle{
+                    height: 2em;
+                    width: 2em;
+                    max-width: 2em;
+                    max-height: 2em;
+                    display: flex;
+                    align-items: center;
+                }
                 .main_card{
                     opacity: ${opacity};
-                    padding: 1em;
                     background: yellow;
                     border: 1px dashed #f44336;
                     margin-bottom: .5em !important;

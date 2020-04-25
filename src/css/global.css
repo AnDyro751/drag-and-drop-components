@@ -4,3 +4,19 @@
 .no_padding{
     padding: 0 !important;
 }
+
+.remove_all_user_select{
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.pointer{
+    cursor: pointer;
+}
+.small_padding_horizontal{
+    padding-right: 1em;
+    padding-left: 1em;
+}
+.small_padding_vertical{
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
