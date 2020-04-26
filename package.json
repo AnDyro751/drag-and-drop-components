@@ -4,10 +4,12 @@
   "description": "MINI PAGE COMPONENT BUILDER",
   "main": "index.js",
   "dependencies": {
+    "@builder.io/react": "^1.1.14-alpha.0",
     "braces": "^2.3.2",
     "domelementtype": "^2.0.1",
     "immutability-helper": "^3.0.2",
     "next": "^9.3.5",
+    "path": "^0.12.7",
     "postcss-selector-parser": "^3.1.2",
     "postcss-value-parser": "^3.3.1",
     "punycode": "^1.4.1",

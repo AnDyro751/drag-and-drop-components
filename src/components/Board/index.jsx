@@ -1,22 +1,26 @@
-import indexPage from '../../../json_pages/index'
 import {useState, useEffect, useCallback} from 'react'
 import Card from "../Card";
 import update from "immutability-helper";
 
 
-const Board = ({}) => {
-    const [cards, setCards] = useState(indexPage.elements);
+const Board = ({pageCards = [], setNewCards}) => {
+    const [cards, setCards] = useState(pageCards);
+
     const moveCard = useCallback(
         (dragIndex, hoverIndex) => {
             const dragCard = cards[dragIndex];
+            let uc = update(cards, {
+                $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
+            })
             setCards(
-                update(cards, {
-                    $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
-                })
+                uc
             );
+            // console.log("CARDS", uc)
+            setNewCards(uc)
         },
         [cards]
     );
+
 
     const renderCard = (card, index) => {
         return (
@@ -26,6 +30,7 @@ const Board = ({}) => {
                 index={index}
                 id={card.id}
                 text={card.text}
+                card={card}
             />
         )
     }

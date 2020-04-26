@@ -3,7 +3,7 @@ import {useDrag, useDrop} from "react-dnd";
 import ItemTypes from "../../itemTypes";
 import DoubleClick from "../DoubleClick";
 
-export default function Card({text, id, index, moveCard}) {
+export default function Card({card, text, id, index, moveCard}) {
 
     const ref = useRef(null)
 
@@ -41,7 +41,6 @@ export default function Card({text, id, index, moveCard}) {
             if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
                 return
             }
-
             moveCard(dragIndex, hoverIndex);
 
             item.index = hoverIndex;
@@ -65,7 +64,12 @@ export default function Card({text, id, index, moveCard}) {
                     />
                 </div>
                 <DoubleClick parentClass="col-xs small_padding_vertical">
-                    {text}
+                    {card.component &&
+                    <p>{card.component.name}</p>
+                    }
+                    {!card.component &&
+                    <p>No hay componente</p>
+                    }
                 </DoubleClick>
             </div>
             <style jsx>{`

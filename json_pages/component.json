@@ -1,0 +1,76 @@
+{
+  "imports": [
+    {
+      "name": "React",
+      "from": "react",
+      "inside": false,
+      "from_node": true
+    },
+    {
+      "name": "DndProvider",
+      "from": "react-dnd",
+      "inside": true,
+      "from_node": true
+    },
+    {
+      "name": "Head",
+      "from": "next/head",
+      "inside": false,
+      "from_node": true
+    },
+    {
+      "name": "Board",
+      "from": "Board",
+      "inside": false,
+      "from_node": false
+    }
+  ],
+  "main_function": {
+    "useEffect": {
+      "insertCode": "console.log(\"HOLA\");console.log(\"HOLA DESDE USE EFFECT\");",
+      "deps": []
+    },
+    "body": [
+      {
+        "tag": "head",
+        "className": "popodeperro",
+        "value": "HOLA JEJEJE",
+        "childs": [
+          {
+            "tag": "h2",
+            "value": "DEMO H"
+          }
+        ]
+      },
+      {
+        "tag": "div",
+        "className": "row u__no_margin",
+        "superClass": "hero_banner_box",
+        "opened": true,
+        "childs": [
+          {
+            "tag": "div",
+            "className": "col-xl-12 u__no_padding",
+            "childs": [
+              {
+                "tag": "div",
+                "className": "hero_banner",
+                "childs": [
+                  {
+                    "tag": "p",
+                    "value": "POPODEPERRO JEJE",
+                    "className": "black_color_text"
+                  },
+                  {
+                    "tag": "h2",
+                    "value": "Hola soy h2"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
