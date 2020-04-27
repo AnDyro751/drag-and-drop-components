@@ -31,12 +31,30 @@
     "name": "Component",
     "props": {
       "name": "\"\"",
-      "title": "\"\""
+      "title": "\"\"",
+      "imgUrl": "\"\""
     },
     "useEffect": {
       "insertCode": "console.log(\"HOLA\");console.log(\"HOLA DESDE USE EFFECT\");",
       "deps": []
     },
+    "styles": [
+      {
+        "className": "hero_banner",
+        "content": {
+          "background": "#000 url(${imgUrl}) !important",
+          "position": "relative"
+        },
+        "global": false
+      },
+      {
+        "className": "demo_global_jsx",
+        "global": true,
+        "content": {
+          "color": "red"
+        }
+      }
+    ],
     "body": [
       {
         "tag": "head",

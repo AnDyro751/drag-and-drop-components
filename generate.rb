@@ -8,9 +8,9 @@ file_data = file.read
 file_data = JSON.parse(file_data)
 
 
-file_data["imports"].each do |import|
-  puts "import #{import["inside"] ? "{#{import["name"]}}" : import["name"]} from '@components/#{import["from"]}'"
-end
+# file_data["imports"].each do |import|
+#   puts "import #{import["inside"] ? "{#{import["name"]}}" : import["name"]} from '@components/#{import["from"]}'"
+# end
 
 
 def get_nodes(element)
@@ -36,7 +36,7 @@ def get_nodes(element)
       HTML
     end
   end
-  return "<>\n#{elements.join("")}\n</>"
+  "<>\n#{elements.join("")}\n</>"
 end
 
 
@@ -51,12 +51,10 @@ def get_html(element)
       HTML
       elements << element_string
     end
-    return elements.join("\n")
+    elements.join("\n")
   end
 end
 
-
-# puts get_nodes(file_data["main_function"]["body"])
 
 def get_main_function(data, raw)
   get_main_component data["name"], data["main_function"]["props"] || [], raw
@@ -64,7 +62,7 @@ end
 
 def get_main_component(name, props, body_raw)
   raise "Invalid name" if name.nil?
-  puts <<-HTML.chomp
+  return <<-HTML.chomp
     const #{name} = ({#{get_props(props)}}) =>{
       return(#{get_nodes(body_raw)})
     }
@@ -82,7 +80,42 @@ def get_props(props)
 end
 
 
-get_main_function(file_data, file_data["main_function"]["body"])
+# get_main_function(file_data, file_data["main_function"]["body"])
+
+
+def get_styles(styles)
+  all_class = ""
+  global_class = ""
+  styles.map { |style|
+    className = ".#{style["className"]} {"
+    style["content"].each { |name, value|
+      className += "\n\t#{name}: #{value};"
+    }
+    className += "\n}\n"
+    all_class += className unless style["global"]
+    global_class += className if style["global"]
+  }
+  parse_styles(all_class, global_class)
+end
+
+
+def parse_styles(string_styles, global_class)
+  full_styles = ""
+  all_style = "\n<style jsx>{`\n"
+  all_style += "#{string_styles}"
+  all_style += "\n`}</style>\n"
+  all_global = ""
+  unless global_class.empty?
+    all_global += "\n<style jsx global>{`\n"
+    all_global += "#{global_class}"
+    all_global += "\n`}</style>\n"
+  end
+  full_styles = all_global + all_style
+  puts full_styles
+  # new_string
+end
+
+get_styles(file_data["main_function"]["styles"])
 
 
 file.close
