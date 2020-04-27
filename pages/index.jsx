@@ -4,7 +4,6 @@ import Head from "next/head";
 import Board from "@components/Board";
 import GetComponents from "@components/GetComponents";
 import indexPage from '../json_pages/index'
-import {useEffect} from "react";
 
 const IndexPage = () => {
     const [pageCards, setPageCards] = React.useState(indexPage.elements || [])
@@ -12,10 +11,6 @@ const IndexPage = () => {
     const handleUpdatePage = (cards) => {
         setPageCards([...cards])
     }
-
-    useEffect(()=>{
-        console.log("HOLA")
-    },[])
 
     return (
         <>

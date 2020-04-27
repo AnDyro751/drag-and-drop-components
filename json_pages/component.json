@@ -1,4 +1,6 @@
 {
+  "name": "Component",
+  "saved": "component",
   "imports": [
     {
       "name": "React",
@@ -26,6 +28,11 @@
     }
   ],
   "main_function": {
+    "name": "Component",
+    "props": {
+      "name": "\"\"",
+      "title": "\"\""
+    },
     "useEffect": {
       "insertCode": "console.log(\"HOLA\");console.log(\"HOLA DESDE USE EFFECT\");",
       "deps": []
