@@ -1,5 +1,5 @@
-import ClassicEnBanner from "../Banners/ClassicEnBanner";
-
+// STARTIMPORT
+ import ClassicEnBanner from '@components/Banners/ClassicEnBanner';
 const Components = {
     ClassicEnBanner: ClassicEnBanner,
 }
