@@ -5,13 +5,11 @@ unless File.exist?(FILE_NAME)
   raise "Invalid file"
 end
 
-# file = File.open(FILE_NAME, "r+")
 
 def remove_line(string, replace_string, other_string_option, delete = false)
   file = File.read(FILE_NAME)
   if delete
     input_lines = File.readlines(FILE_NAME)
-    # output_lines = input_lines.select.with_index { |_, i| i.even? }
     File.open(FILE_NAME, 'w') do |f|
       input_lines.each do |line|
         f.write line unless line.downcase.include? string.downcase
@@ -31,9 +29,6 @@ def get_full_import(name_component = "", new_component = "", inside = false)
   "STARTIMPORT\nimport #{inside ? "{#{name_component}}" : "#{name_component}"} from '#{new_component}';"
 end
 
-# puts get_full_import()
-
-
 def add_import(name_component = "", new_component = "", inside = false)
   remove_line("STARTIMPORT", get_full_import(name_component, new_component, inside), get_full_import(name_component, new_component, !inside), false)
   remove_line("STARTCOMPONENTS", "STARTCOMPONENTS\n #{name_component}: #{name_component},", "#{name_component}: #{name_component},", false)
@@ -42,4 +37,3 @@ end
 
 # add_import("ClassicEnasaBanner", "@components/Banners/ClassicEaskmnBanner", false)
 # remove_line("ClassicEnBanner", "", "", true)
-# file.close
