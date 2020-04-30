@@ -7,7 +7,8 @@
       "id": 1,
       "text": "Componente 1",
       "component": {
-        "name": "Banner",
+        "name": "ClassicEnBanner",
+        "uid": "Banners/ClassicEnBanner",
         "props": {
           "mainImage": "https://duidw9pmheq85.cloudfront.net/eyJidWNrZXQiOiJhemFjaGlpLXN0b3JlcyIsImtleSI6InBhZ2VzL2luZGV4L2l2ZS1iZWVuLXdvcmtpbmctb24tdGhpcy1mb3ItYS1sb25nLXRpbWUuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3MDAsImhlaWdodCI6NzAwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJyIjoyMTcsImciOjE4MSwiYiI6MTM0LCJhbHBoYSI6MX19fX0=",
           "text": {
@@ -24,7 +25,7 @@
       "id": 2,
       "text": "Componente 2",
       "component": {
-        "name": "Banner",
+        "name": "ClassicEnBanner",
         "props": {
           "mainImage": "https://duidw9pmheq85.cloudfront.net/eyJidWNrZXQiOiJhemFjaGlpLXN0b3JlcyIsImtleSI6InBhZ2VzL2luZGV4L2l2ZS1iZWVuLXdvcmtpbmctb24tdGhpcy1mb3ItYS1sb25nLXRpbWUuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3MDAsImhlaWdodCI6NzAwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJyIjoyMTcsImciOjE4MSwiYiI6MTM0LCJhbHBoYSI6MX19fX0=",
           "text": {
@@ -41,7 +42,7 @@
       "id": 3,
       "text": "Componente 3",
       "component": {
-        "name": "Banner",
+        "name": "ClassicEnBanner",
         "props": {
           "mainImage": "https://duidw9pmheq85.cloudfront.net/eyJidWNrZXQiOiJhemFjaGlpLXN0b3JlcyIsImtleSI6InBhZ2VzL2luZGV4L2l2ZS1iZWVuLXdvcmtpbmctb24tdGhpcy1mb3ItYS1sb25nLXRpbWUuanBnIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjo3MDAsImhlaWdodCI6NzAwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJyIjoyMTcsImciOjE4MSwiYiI6MTM0LCJhbHBoYSI6MX19fX0=",
           "text": {

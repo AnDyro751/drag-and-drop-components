@@ -112,7 +112,7 @@ def parse_styles(string_styles, global_class)
   end
   full_styles = all_global + all_style
   puts full_styles
-  # new_string
+  full_styles
 end
 
 get_styles(file_data["main_function"]["styles"])
